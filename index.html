@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NSW · Schulentwicklungstage 2026</title>
+<style>
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f7f9fc !important;
+    font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+    color: #4a4a4a;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: #1a3a5c;
+    color: #ffffff;
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(46,109,164,0.5) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(230,126,34,0.2) 0%, transparent 50%);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #e67e22;
+    border: 1px solid rgba(230,126,34,0.4);
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: #8db8d8;
+  }
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+    position: relative;
+  }
+  .hero-quote {
+    margin: 48px auto 0;
+    max-width: 680px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 32px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.6;
+    opacity: 0.88;
+    position: relative;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(26,58,92,0.10);
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  nav a {
+    display: block;
+    padding: 18px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #4a4a4a;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  nav a:hover, nav a.active {
+    color: #1a3a5c;
+    border-bottom-color: #e67e22;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  section {
+    padding: 72px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #e67e22;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    color: #1a3a5c;
+    line-height: 1.2;
+    margin-bottom: 32px;
+  }
+
+  /* ── CARDS ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 32px;
+    box-shadow: 0 4px 24px rgba(26,58,92,0.10);
+    border-top: 4px solid #2e6da4;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 48px rgba(26,58,92,0.16); }
+  .card.orange { border-top-color: #e67e22; }
+  .card.green { border-top-color: #1e7a4a; }
+
+  .card-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #2e6da4;
+    margin-bottom: 12px;
+  }
+  .card.orange .card-num { color: #e67e22; }
+  .card.green .card-num { color: #1e7a4a; }
+
+  .card h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 20px;
+    color: #1a3a5c;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666;
+  }
+
+  /* ── LEITSÄTZE ── */
+  .leitsatz {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(26,58,92,0.10);
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .leitsatz:hover { transform: translateX(6px); box-shadow: 0 12px 48px rgba(26,58,92,0.16); }
+
+  .leitsatz-num {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 28px 16px;
+    color: #ffffff;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+  .leitsatz-num .big { font-size: 42px; font-weight: 700; line-height: 1; }
+  .leitsatz-num .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; margin-top: 4px; }
+
+  .leitsatz-body {
+    padding: 28px 32px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.65;
+    display: flex;
+    align-items: center;
+  }
+
+  .ls1 .leitsatz-num { background: #2e6da4; }
+  .ls1 .leitsatz-body { background: #d6eaf8; color: #1a3a5c; }
+  .ls2 .leitsatz-num { background: #e67e22; }
+  .ls2 .leitsatz-body { background: #fdebd0; color: #7a3e00; }
+  .ls3 .leitsatz-num { background: #1e7a4a; }
+  .ls3 .leitsatz-body { background: #d5f5e3; color: #0d3d22; }
+
+  /* Detail panel */
+  .leitsatz-detail {
+    display: none;
+    background: #ffffff;
+    border-radius: 0 0 4px 4px;
+    padding: 28px 32px 28px 172px;
+    box-shadow: 0 4px 24px rgba(26,58,92,0.10);
+    margin-top: -4px;
+    margin-bottom: 20px;
+    border-left: 4px solid #2e6da4;
+    animation: slideDown 0.3s ease;
+  }
+  .ls2-detail { border-left-color: #e67e22; }
+  .ls3-detail { border-left-color: #1e7a4a; }
+  .leitsatz-detail.open { display: block; }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .detail-item h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #1a3a5c;
+    margin-bottom: 8px;
+  }
+  .detail-item p { font-size: 14px; line-height: 1.6; color: #555; }
+
+  /* ── AKKORDEON ── */
+  .accordion { margin-top: 32px; }
+  .acc-item {
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 24px rgba(26,58,92,0.10);
+  }
+  .acc-header {
+    background: #ffffff;
+    padding: 20px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-left: 4px solid #2e6da4;
+  }
+  .acc-header:hover { background: #d6eaf8; }
+  .acc-header h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1a3a5c;
+  }
+  .acc-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #d6eaf8;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    color: #2e6da4;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+  .acc-item.open .acc-icon { transform: rotate(45deg); }
+  .acc-body {
+    display: none;
+    background: #ffffff;
+    padding: 0 28px 24px 32px;
+    border-left: 4px solid #d6eaf8;
+  }
+  .acc-item.open .acc-body { display: block; animation: slideDown 0.25s ease; }
+  .acc-body ul { list-style: none; padding: 0; margin-top: 12px; }
+  .acc-body li {
+    padding: 8px 0 8px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    line-height: 1.6;
+    position: relative;
+  }
+  .acc-body li:before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #e67e22;
+    font-weight: 600;
+  }
+  .acc-body li:last-child { border-bottom: none; }
+
+  /* ── SMART ZIELE ── */
+  .smart-tabs { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+  .smart-tab {
+    padding: 10px 24px;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .smart-tab[data-tab="1"] { background: #d6eaf8; color: #1a3a5c; border-color: #2e6da4; }
+  .smart-tab[data-tab="2"] { background: #fdebd0; color: #7a3e00; border-color: #e67e22; }
+  .smart-tab[data-tab="3"] { background: #d5f5e3; color: #0d3d22; border-color: #1e7a4a; }
+  .smart-tab.active { color: #ffffff !important; }
+  .smart-tab[data-tab="1"].active { background: #2e6da4; }
+  .smart-tab[data-tab="2"].active { background: #e67e22; }
+  .smart-tab[data-tab="3"].active { background: #1e7a4a; }
+
+  .smart-panel { display: none; }
+  .smart-panel.active { display: block; animation: slideDown 0.25s ease; }
+
+  .smart-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 24px rgba(26,58,92,0.10);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .smart-table thead th {
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+  .panel-1 .smart-table thead { background: #2e6da4; }
+  .panel-2 .smart-table thead { background: #e67e22; }
+  .panel-3 .smart-table thead { background: #1e7a4a; }
+
+  .smart-table tbody tr { border-bottom: 1px solid #eee; }
+  .smart-table tbody tr:last-child { border-bottom: none; }
+  .smart-table tbody td {
+    padding: 16px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    vertical-align: top;
+    background: #ffffff;
+  }
+  .smart-table tbody td:first-child {
+    font-weight: 600;
+    color: #1a3a5c;
+    width: 160px;
+    white-space: nowrap;
+  }
+  .smart-table .placeholder {
+    color: #bbb;
+    font-style: italic;
+  }
+
+  /* ── ZEITPLAN ── */
+  .timeline { margin-top: 32px; position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 110px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #2e6da4, #1e7a4a);
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .tl-time {
+    text-align: right;
+    padding-top: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #2e6da4;
+    line-height: 1.4;
+  }
+  .tl-dot {
+    position: absolute;
+    left: 103px;
+    top: 6px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid #2e6da4;
+    z-index: 1;
+  }
+  .tl-content {
+    background: #ffffff;
+    padding: 20px 24px;
+    border-radius: 4px;
+    box-shadow: 0 4px 24px rgba(26,58,92,0.10);
+    border-left: 3px solid #d6eaf8;
+  }
+  .tl-content h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a3a5c;
+    margin-bottom: 6px;
+  }
+  .tl-content p { font-size: 13px; color: #666; line-height: 1.5; }
+  .tl-content .resp {
+    display: inline-block;
+    margin-top: 10px;
+    background: #d6eaf8;
+    color: #1a3a5c;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── AUFTRAG BOX ── */
+  .auftrag-box {
+    background: #ffffff;
+    border-radius: 4px;
+    border-left: 6px solid #e67e22;
+    padding: 36px 40px;
+    box-shadow: 0 4px 24px rgba(26,58,92,0.10);
+    margin-top: 32px;
+  }
+  .auftrag-box h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px;
+    color: #1a3a5c;
+    margin-bottom: 12px;
+  }
+  .auftrag-box > p { font-size: 15px; line-height: 1.7; margin-bottom: 28px; color: #555; }
+  .auftrag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .auftrag-item {
+    background: #fdebd0;
+    border-radius: 4px;
+    padding: 20px 22px;
+  }
+  .auftrag-item h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #e67e22;
+    margin-bottom: 8px;
+  }
+  .auftrag-item p { font-size: 13px; line-height: 1.6; color: #6b4010; }
+  .auftrag-note {
+    margin-top: 20px;
+    font-size: 13px;
+    font-style: italic;
+    color: #999;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #1a3a5c;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 32px 40px;
+    font-size: 13px;
+  }
+  footer strong { color: rgba(255,255,255,0.85); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(26,58,92,0.12), transparent);
+    margin: 0 40px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    section { padding: 48px 20px; }
+    .hero { padding: 60px 20px 48px; }
+    nav { padding: 0 12px; }
+    .leitsatz { grid-template-columns: 90px 1fr; }
+    .leitsatz-num .big { font-size: 28px; }
+    .leitsatz-detail { padding-left: 94px; }
+    .detail-grid { grid-template-columns: 1fr; }
+    .timeline::before { left: 72px; }
+    .tl-item { grid-template-columns: 72px 1fr; gap: 16px; }
+    .tl-dot { left: 65px; }
+    .auftrag-grid { grid-template-columns: 1fr; }
+    .smart-table tbody td:first-child { width: 100px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Neue Schule Wolfsburg · Schulentwicklungstage 2026</div>
+  <h1>NSW in <em>2030</em></h1>
+  <p class="hero-sub">Ergebnisse der Schulentwicklungstage · Erweiterte Schulleitung</p>
+  <div class="hero-quote">
+    „Eine Gemeinschaft, in der der Schulalltag gemeinsam gestaltet und gelebt wird."
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainnav">
+  <a href="#kern" class="active">Pädagogischer Kern</a>
+  <a href="#bewaehrt">Bewährt &amp; Weiterentwicklung</a>
+  <a href="#loslassen">Loslassen</a>
+  <a href="#walktalk">Walk &amp; Talk</a>
+  <a href="#leitsaetze">Leitsätze</a>
+  <a href="#smart">SMART-Ziele</a>
+  <a href="#naechste">Nächste Schritte</a>
+</nav>
+
+<!-- KERN -->
+<section id="kern" class="fade-in">
+  <p class="section-label">Tag 1 · Bestandsaufnahme</p>
+  <h2 class="section-title">Was ist der unverrückbare Kern unserer Pädagogik?</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-num">Beziehung</div>
+      <h3>Diese Schule lässt keinen allein.</h3>
+      <p>Positive Beziehungskultur ist das Fundament: Inklusion, 1:1-Betreuung, Check-in/Check-out und Tutorenprinzip sichern, dass jede*r gesehen wird.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">Lernen</div>
+      <h3>Lernen miteinander und voneinander.</h3>
+      <p>Binnendifferenzierung, jahrgangsübergreifendes Lernen (JÜL) und interessengeleitetes Arbeiten ermöglichen individuelle Lernwege für alle SuS.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">Struktur</div>
+      <h3>Klassenlehrer-Team als tragende Säule.</h3>
+      <p>Das KL-Team koordiniert Begleitung und Kommunikation. Der Raum als dritter Pädagoge und reflektierte Unterrichtsentwicklung sind unverzichtbar.</p>
+    </div>
+    <div class="card orange">
+      <div class="card-num">Gemeinschaft</div>
+      <h3>Das Kollegium als lernende Gemeinschaft.</h3>
+      <p>Gemeinsame Weiterentwicklung, gegenseitige Unterstützung und geteilte Verantwortung – das Kollegium trägt die pädagogische Identität der NSW.</p>
+    </div>
+    <div class="card green">
+      <div class="card-num">Qualität</div>
+      <h3>Hohe Schülerorientierung &amp; Inklusion.</h3>
+      <p>Interessengeleitetheit, hohes Schülervertrauen und das Florian/Jana-Prinzip stehen für eine Schule, die jedem Kind gerecht werden will.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">Haltung</div>
+      <h3>Die Schule ist nie fertig.</h3>
+      <p>Reflektierte Unterrichtsentwicklung und die Bereitschaft zur Weiterentwicklung sind Teil unserer Identität – nicht Ausnahme, sondern Prinzip.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BEWÄHRT -->
+<section id="bewaehrt" class="fade-in">
+  <p class="section-label">Tag 1 · Bestandsaufnahme</p>
+  <h2 class="section-title">Was hat sich bewährt, braucht aber Weiterentwicklung?</h2>
+  <div class="accordion">
+    <div class="acc-item" data-acc>
+      <div class="acc-header">
+        <h3>PerLe – Beziehungsarbeit und Selbstständigkeit</h3>
+        <div class="acc-icon">+</div>
+      </div>
+      <div class="acc-body">
+        <ul>
+          <li>Beziehungsarbeit: Ja – unbedingt beibehalten</li>
+          <li>Mehr Stunden bereitstellen, um Selbstständigkeit &amp; Selbstbestimmung zu fördern</li>
+          <li>LK und SuS stärker in die Gestaltung einbinden</li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc-item" data-acc>
+      <div class="acc-header">
+        <h3>Kooperatives Arbeiten im Kollegium</h3>
+        <div class="acc-icon">+</div>
+      </div>
+      <div class="acc-body">
+        <ul>
+          <li>Vom Einzelkämpfer zum Team: Richtung stimmt, Tempo kann erhöht werden</li>
+          <li>Material gemeinsam entwickeln und differenzieren</li>
+          <li>Lernwege gemeinsam verorten und dokumentieren</li>
+          <li>Mehr Tutorenformat und Mitarbeiter-Schulungen einplanen</li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc-item" data-acc>
+      <div class="acc-header">
+        <h3>Essenskultur &amp; Tagesstruktur</h3>
+        <div class="acc-icon">+</div>
+      </div>
+      <div class="acc-body">
+        <ul>
+          <li>Stressige Essenssituationen für SuS und KuK müssen entschärft werden</li>
+          <li>Tagesstruktur und Wochenplanung: mehr Freiraum und Selbststeuerung</li>
+          <li>Sitzungskultur: freiere Zeit, weniger Pflichtformate</li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc-item" data-acc>
+      <div class="acc-header">
+        <h3>Leistungsbewertung &amp; Prüfungsformate</h3>
+        <div class="acc-icon">+</div>
+      </div>
+      <div class="acc-body">
+        <ul>
+          <li>Alternative Prüfungsformate prüfen – was ist mit Noten?</li>
+          <li>Kompetenzraster: wirkliche Kompetenzen abbilden</li>
+          <li>Rolle der FB und SL bei Bewertungsfragen klären</li>
+          <li>Prüfungsformate weiter öffnen und anders denken</li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc-item" data-acc>
+      <div class="acc-header">
+        <h3>Inklusion, Classroom-Management &amp; Unterstützung</h3>
+        <div class="acc-icon">+</div>
+      </div>
+      <div class="acc-body">
+        <ul>
+          <li>Schulung im Umgang mit besonderen SuS – eigene Multiplikatoren aufbauen</li>
+          <li>Gegenseitige Unterstützung vor allem bei besonderen SuS stärken</li>
+          <li>Entlastungen und Strukturen schaffen, die wirklich entlasten</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LOSLASSEN -->
+<section id="loslassen" class="fade-in">
+  <p class="section-label">Tag 1 · Zukunftswerkstatt – Kritik</p>
+  <h2 class="section-title">Was sollten wir loslassen oder grundsätzlich verändern?</h2>
+  <div class="accordion">
+    <div class="acc-item" data-acc>
+      <div class="acc-header">
+        <h3>Präsenz &amp; Zeitverständnis</h3>
+        <div class="acc-icon">+</div>
+      </div>
+      <div class="acc-body">
+        <ul>
+          <li>Zeitverständnis der LK neu verhandeln: Anwesenheit ≠ Wirkung</li>
+          <li>„Wünsch dir was"-Kulturen ablösen durch echte Strukturen</li>
+          <li>Vorbildfunktion aktiv gestalten, nicht passiv verwalten</li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc-item" data-acc>
+      <div class="acc-header">
+        <h3>Identität &amp; Haltung der Lehrpersonen</h3>
+        <div class="acc-icon">+</div>
+      </div>
+      <div class="acc-body">
+        <ul>
+          <li>Leitgedanke und Haltung klarer machen – was bedeutet es, an der NSW zu arbeiten?</li>
+          <li>Mut zur Veränderung kultivieren, Perfektionismus ablegen</li>
+          <li>Nicht immer das Rad neu erfinden – Bestehendes anerkennen und nutzen</li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc-item" data-acc>
+      <div class="acc-header">
+        <h3>Funktion &amp; Arbeitsweise der Lehrpersonen</h3>
+        <div class="acc-icon">+</div>
+      </div>
+      <div class="acc-body">
+        <ul>
+          <li>Rolle KL/FL überdenken: Begleitung statt reiner Wissensvermittlung</li>
+          <li>Deputatsstunden und Ressort-Denken auf den Prüfstand stellen</li>
+          <li>Anerkennung nicht nur eigener Materialien, sondern kollektiver Entwicklung</li>
+          <li>Funktionsstunden sinnvoll und transparent verteilen</li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc-item" data-acc>
+      <div class="acc-header">
+        <h3>Starre Strukturen &amp; Formate</h3>
+        <div class="acc-icon">+</div>
+      </div>
+      <div class="acc-body">
+        <ul>
+          <li>Starres Konstrukt von 36 vorgegebenen Stunden für SuS auflösen</li>
+          <li>Alle SuS im Gleichschritt – Jahrgangsgrenzen neu definieren</li>
+          <li>„Deputatsdenken" und Kirchturm-Denken (Fachbereiche, Formate) überwinden</li>
+          <li>Sonderformate für LK als Doppelbelastung überdenken</li>
+          <li>Schulentwicklung von oben ohne echte Beteiligung beenden</li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc-item" data-acc>
+      <div class="acc-header">
+        <h3>Fehlende Qualitätssicherung &amp; Leitideen</h3>
+        <div class="acc-icon">+</div>
+      </div>
+      <div class="acc-body">
+        <ul>
+          <li>Nicht vorhandene Qualitätskontrolle endlich etablieren</li>
+          <li>Hospitationen als echten Austausch nutzen, nicht als Kontrolle</li>
+          <li>Fehlende Leitideen entwickeln – u.a. Digitales Lernen</li>
+          <li>Arbeitskreise/FBs ohne Rückkopplung reformieren</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WALK & TALK -->
+<section id="walktalk" class="fade-in">
+  <p class="section-label">Tag 2 · Walk &amp; Talk</p>
+  <h2 class="section-title">Erkenntnisse aus dem Walk &amp; Talk</h2>
+  <p style="font-size:15px; line-height:1.75; max-width:720px; margin-bottom:36px; color:#555;">
+    Im Gehen wurden die größten Spannungsfelder und Erkenntnisse des Wochenendes verdichtet. Diese Kernaussagen entstanden:
+  </p>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-num">Einheit</div>
+      <h3>Als Schulleitung geschlossen auftreten.</h3>
+      <p>Veränderungsprozesse müssen als Team kommuniziert werden. Kein Auftreten von Einzelpersonen – nur als geschlossene erweiterte Schulleitung.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">Transparenz</div>
+      <h3>Das Kollegium wirklich mitnehmen.</h3>
+      <p>Mitarbeitende müssen sich mitgenommen und abgeholt fühlen. Transparenz ist kein Nice-to-have, sondern Voraussetzung für gelingende Schulentwicklung.</p>
+    </div>
+    <div class="card orange">
+      <div class="card-num">Strategie</div>
+      <h3>Lieber ein klarer Cut als Brockenhaftigkeit.</h3>
+      <p>Ein sauberer Neustart ist wirkungsvoller als weitere fragmentarische Einzelmaßnahmen, die das Kollegium bereits negativ belastet haben.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">Verantwortung</div>
+      <h3>Verantwortung abgeben und mitgeben.</h3>
+      <p>Nur wer sich für ein System verantwortlich fühlt, kann aktiv darin agieren. Verantwortung muss bewusst übertragen werden.</p>
+    </div>
+    <div class="card green">
+      <div class="card-num">Didaktische Leitung</div>
+      <h3>Erst einbinden, dann kommunizieren.</h3>
+      <p>Die didaktische Leitung muss unbedingt vor dem öffentlichen Kommunikationsprozess eingebunden sein – sie trägt die pädagogischen Veränderungen explizit.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">Warum</div>
+      <h3>Das Warum klar kommunizieren.</h3>
+      <p>Nicht Selbstzweck, sondern Zukunftsfähigkeit: In 10–20 Jahren noch gelingende Schule sein. Das ist der Grund für diesen Weg.</p>
+    </div>
+  </div>
+
+  <div class="auftrag-box" style="margin-top:48px">
+    <h3>Folgeauftrag: Leitsätze weiter ausarbeiten</h3>
+    <p>Die drei Leitsätze bilden den Kern unserer künftigen Schulentwicklung. Jede Person / jedes Tandem erarbeitet bis zum nächsten Termin für einen Leitsatz:</p>
+    <div class="auftrag-grid">
+      <div class="auftrag-item">
+        <h4>1 · Konkretisierung</h4>
+        <p>Was bedeutet dieser Leitsatz im Schulalltag konkret – für SuS, KuK und Eltern? (3–5 Sätze)</p>
+      </div>
+      <div class="auftrag-item">
+        <h4>2 · Gelingensbedingungen</h4>
+        <p>Was brauchen wir, damit dieser Leitsatz tatsächlich gelebt wird? Mind. 2 strukturelle + 2 kulturelle Voraussetzungen.</p>
+      </div>
+      <div class="auftrag-item">
+        <h4>3 · Spannungsfelder</h4>
+        <p>Wo siehst du mögliche Widerstände oder Konflikte? Wie könnte die SL damit konstruktiv umgehen?</p>
+      </div>
+      <div class="auftrag-item">
+        <h4>4 · Erster sichtbarer Schritt</h4>
+        <p>Was könnte noch vor den Sommerferien konkret angegangen werden – ohne auf neue Ressourcen warten zu müssen?</p>
+      </div>
+    </div>
+    <p class="auftrag-note">Format: ca. 1 DIN-A4-Seite je Leitsatz · Ergebnisse fließen in die SMART-Ziel-Finalisierung ein.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LEITSÄTZE -->
+<section id="leitsaetze" class="fade-in">
+  <p class="section-label">Tag 2 · Ergebnisse</p>
+  <h2 class="section-title">Die drei Leitsätze der NSW</h2>
+  <p style="font-size:15px; line-height:1.75; max-width:720px; margin-bottom:36px; color:#555;">
+    Aus den Visionsposter-Gruppen wurden drei gemeinsame Leitsätze verdichtet. Klicke auf einen Leitsatz, um mehr zu erfahren.
+  </p>
+
+  <div class="leitsatz ls1" data-ls="1">
+    <div class="leitsatz-num">
+      <div class="big">1</div>
+      <div class="label">Leitsatz</div>
+    </div>
+    <div class="leitsatz-body">„Unsere Schule ermöglicht das Erleben einer echten Schulgemeinschaft, indem allen an der Schulgemeinschaft Beteiligten Partizipation ermöglicht und gemeinsam in unserem Haus gelebt, gelernt, kommuniziert und kooperiert wird."</div>
+  </div>
+  <div class="leitsatz-detail" id="detail-1">
+    <div class="detail-grid">
+      <div class="detail-item">
+        <h4>Schwerpunkt</h4>
+        <p>Schulgemeinschaft & Partizipation – alle Beteiligten (SuS, KuK, Eltern, Externe) sind aktiv eingebunden.</p>
+      </div>
+      <div class="detail-item">
+        <h4>Konkretisierung</h4>
+        <p>Gemeinsame Gesamtkonferenz für SuS, KuK und Eltern. Schülervertreter aktiv in Schulentwicklung einbinden.</p>
+      </div>
+      <div class="detail-item">
+        <h4>Verbindung zum Kern</h4>
+        <p>„Eine Gemeinschaft, in der der Schulalltag gemeinsam gestaltet und gelebt wird."</p>
+      </div>
+      <div class="detail-item">
+        <h4>SMART-Ziel</h4>
+        <p>→ Platzhalter: wird im Nachgang ausgearbeitet.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="leitsatz ls2" data-ls="2">
+    <div class="leitsatz-num">
+      <div class="big">2</div>
+      <div class="label">Leitsatz</div>
+    </div>
+    <div class="leitsatz-body">„Unsere Schule ermöglicht echte Selbststeuerung, indem man 50% des Schultages selbstentscheiden kann, wo, was, wie und mit wem man lernt, und welche Schwerpunkte man wählt."</div>
+  </div>
+  <div class="leitsatz-detail ls2-detail" id="detail-2">
+    <div class="detail-grid">
+      <div class="detail-item">
+        <h4>Schwerpunkt</h4>
+        <p>Individualisierung & Selbststeuerung – flexible Lernzeiten, eigenverantwortliches Arbeiten, offene Lernlandschaft.</p>
+      </div>
+      <div class="detail-item">
+        <h4>Konkretisierung</h4>
+        <p>Individueller Entwicklungsplan, neigungsbasiertes Arbeiten, kein starrer Stundenplan für 50% der Zeit.</p>
+      </div>
+      <div class="detail-item">
+        <h4>Verbindung zum Kern</h4>
+        <p>Flexibles Lernen, Miteinander & Voneinander, Doppeljahrgangsstruktur als Voraussetzung.</p>
+      </div>
+      <div class="detail-item">
+        <h4>SMART-Ziel</h4>
+        <p>→ Platzhalter: wird im Nachgang ausgearbeitet.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="leitsatz ls3" data-ls="3">
+    <div class="leitsatz-num">
+      <div class="big">3</div>
+      <div class="label">Leitsatz</div>
+    </div>
+    <div class="leitsatz-body">„Unsere Schule ermöglicht die Synergien von Teamstrukturen zu nutzen, indem Schwerpunktarbeitspläne und Kompetenzübersichten gemeinsam erstellt und anschließend verlässlich eingesetzt werden."</div>
+  </div>
+  <div class="leitsatz-detail ls3-detail" id="detail-3">
+    <div class="detail-grid">
+      <div class="detail-item">
+        <h4>Schwerpunkt</h4>
+        <p>Teamstrukturen & kooperative Unterrichtsentwicklung – gemeinsame Pläne, gemeinsame Verantwortung.</p>
+      </div>
+      <div class="detail-item">
+        <h4>Konkretisierung</h4>
+        <p>Kompetenzraster, individualisierte Begleitung durch Portfolio, 1:1-Betreuung mit fachlicher und erzieherischer Nachvollziehbarkeit.</p>
+      </div>
+      <div class="detail-item">
+        <h4>Verbindung zum Kern</h4>
+        <p>Kooperatives Arbeiten stärken, vom Einzelkämpfer zum Team – strukturell verankert, nicht personenabhängig.</p>
+      </div>
+      <div class="detail-item">
+        <h4>SMART-Ziel</h4>
+        <p>→ Platzhalter: wird im Nachgang ausgearbeitet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SMART-ZIELE -->
+<section id="smart" class="fade-in">
+  <p class="section-label">Nächster Schritt</p>
+  <h2 class="section-title">SMART-Ziele</h2>
+  <p style="font-size:15px; line-height:1.75; max-width:720px; margin-bottom:32px; color:#555;">
+    Aus jedem Leitsatz wird ein konkretes SMART-Ziel abgeleitet. Die Felder unten sind Platzhalter und werden gemeinsam im Nachgang zur Schulleitung-Sitzung ausgefüllt.
+  </p>
+
+  <div class="smart-tabs">
+    <div class="smart-tab active" data-tab="1">Leitsatz 1 · Gemeinschaft</div>
+    <div class="smart-tab" data-tab="2">Leitsatz 2 · Selbststeuerung</div>
+    <div class="smart-tab" data-tab="3">Leitsatz 3 · Teamstrukturen</div>
+  </div>
+
+  <div class="smart-panel panel-1 active" id="smart-1">
+    <table class="smart-table">
+      <thead><tr><th colspan="2">SMART-Ziel 1 – abgeleitet aus Leitsatz 1: Schulgemeinschaft &amp; Partizipation</th></tr></thead>
+      <tbody>
+        <tr><td>S – Spezifisch</td><td class="placeholder">[Was genau wollen wir erreichen?]</td></tr>
+        <tr><td>M – Messbar</td><td class="placeholder">[Woran erkennen wir den Erfolg?]</td></tr>
+        <tr><td>A – Attraktiv</td><td class="placeholder">[Warum ist dieses Ziel erstrebenswert?]</td></tr>
+        <tr><td>R – Realistisch</td><td class="placeholder">[Ressourcen und Machbarkeit]</td></tr>
+        <tr><td>T – Terminiert</td><td class="placeholder">[Zeitrahmen und Meilensteine]</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="smart-panel panel-2" id="smart-2">
+    <table class="smart-table">
+      <thead><tr><th colspan="2">SMART-Ziel 2 – abgeleitet aus Leitsatz 2: Echte Selbststeuerung &amp; 50% Eigenzeit</th></tr></thead>
+      <tbody>
+        <tr><td>S – Spezifisch</td><td class="placeholder">[Was genau wollen wir erreichen?]</td></tr>
+        <tr><td>M – Messbar</td><td class="placeholder">[Woran erkennen wir den Erfolg?]</td></tr>
+        <tr><td>A – Attraktiv</td><td class="placeholder">[Warum ist dieses Ziel erstrebenswert?]</td></tr>
+        <tr><td>R – Realistisch</td><td class="placeholder">[Ressourcen und Machbarkeit]</td></tr>
+        <tr><td>T – Terminiert</td><td class="placeholder">[Zeitrahmen und Meilensteine]</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="smart-panel panel-3" id="smart-3">
+    <table class="smart-table">
+      <thead><tr><th colspan="2">SMART-Ziel 3 – abgeleitet aus Leitsatz 3: Teamstrukturen &amp; Kompetenzübersichten</th></tr></thead>
+      <tbody>
+        <tr><td>S – Spezifisch</td><td class="placeholder">[Was genau wollen wir erreichen?]</td></tr>
+        <tr><td>M – Messbar</td><td class="placeholder">[Woran erkennen wir den Erfolg?]</td></tr>
+        <tr><td>A – Attraktiv</td><td class="placeholder">[Warum ist dieses Ziel erstrebenswert?]</td></tr>
+        <tr><td>R – Realistisch</td><td class="placeholder">[Ressourcen und Machbarkeit]</td></tr>
+        <tr><td>T – Terminiert</td><td class="placeholder">[Zeitrahmen und Meilensteine]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- NÄCHSTE SCHRITTE -->
+<section id="naechste" class="fade-in">
+  <p class="section-label">Ausblick</p>
+  <h2 class="section-title">Nächste Schritte &amp; Zeitplan</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-time">Kurzfristig</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h4>SMART-Ziele finalisieren</h4>
+        <p>Aus den Leitsatz-Ausarbeitungen (Folgeauftrag) werden gemeinsam die drei SMART-Ziele fertiggestellt und schriftlich fixiert.</p>
+        <span class="resp">Erweiterte SL</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Kurzfristig</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h4>Kommunikationsstrategie erarbeiten</h4>
+        <p>Die SL erarbeitet geschlossen eine Strategie, wie und wann der Prozess an Kollegium, Eltern und SuS kommuniziert wird. Kein Einzelauftreten.</p>
+        <span class="resp">SL-Team geschlossen</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Vor Sommer&shy;ferien</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h4>Didaktische Leitung einbinden</h4>
+        <p>Die neue Didaktische Leitung muss vor dem Kommunikationsprozess ins Boot geholt werden. Sie trägt die pädagogisch-didaktischen Veränderungen explizit mit.</p>
+        <span class="resp">Schulleitung</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Nach Sommer&shy;ferien</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h4>Kommunikation an die Schulgemeinschaft</h4>
+        <p>Kollegium, Elternvertreter und Schülervertreter möglichst zeitgleich auf einer Gesamtkonferenz informieren – damit keine Gruppe sich zweitrangig fühlt.</p>
+        <span class="resp">Erw. SL + Didat. Ltg.</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Nach Sommer&shy;ferien</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h4>Neue Geschäftsführung integrieren</h4>
+        <p>Die neue GF wird in den laufenden Schulentwicklungsprozess eingebunden und informiert.</p>
+        <span class="resp">Schulleitung</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">In ~2 Jahren</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h4>Ressourcenverhandlungen vorbereiten</h4>
+        <p>Neue Verhandlungen zu Geldern und Ressourcen müssen frühzeitig mit dem Schulentwicklungskonzept verknüpft werden.</p>
+        <span class="resp">SL + GF</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Neue Schule Wolfsburg</strong> · Erweiterte Schulleitung · Schulentwicklungstage 2026<br>
+  <span style="margin-top:8px; display:block; font-size:11px;">Internes Dokument · Nicht zur Weitergabe bestimmt</span>
+</footer>
+
+<script>
+  // Accordion
+  document.querySelectorAll('[data-acc]').forEach(item => {
+    item.querySelector('.acc-header').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('[data-acc]').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Leitsatz detail panels
+  document.querySelectorAll('[data-ls]').forEach(ls => {
+    ls.addEventListener('click', () => {
+      const id = ls.dataset.ls;
+      const detail = document.getElementById('detail-' + id);
+      const isOpen = detail.classList.contains('open');
+      document.querySelectorAll('.leitsatz-detail').forEach(d => d.classList.remove('open'));
+      if (!isOpen) detail.classList.add('open');
+    });
+  });
+
+  // SMART tabs
+  document.querySelectorAll('.smart-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const t = tab.dataset.tab;
+      document.querySelectorAll('.smart-tab').forEach(x => x.classList.remove('active'));
+      document.querySelectorAll('.smart-panel').forEach(x => x.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('smart-' + t).classList.add('active');
+    });
+  });
+
+  // Nav active on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+
+  // Fade in on scroll
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const fadeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => fadeObs.observe(el));
+</script>
+</body>
+</html>
